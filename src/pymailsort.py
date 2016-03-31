@@ -18,7 +18,7 @@ def header_regex_classifier(headername, value):
     regexes = [
         ('To', '.*' , 'PYMAILSORTERROR')
     ]
-    configfile = "src/pymailsort_cfg.py"
+    configfile = "bin/pymailsort_cfg.py"
     if os.path.isfile(configfile):
         from pymailsort_cfg import regexes
 
