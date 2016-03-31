@@ -1,0 +1,19 @@
+MAILDIRBASE = "$HOME/Maildir"
+logfile "$HOME/mailfilter.log"
+
+# call spamassassin
+xfilter "/usr/bin/spamc"
+
+# call the sorting python script
+PYRESULT=`python $HOME/bin/pymailsort.py --logfilename $HOME/pymailfilter.log`
+# python result includes /.INBOX.
+MAILDIR="$MAILDIRBASE$PYRESULT"
+
+`test -d $MAILDIR/new && exit 1 || exit 0`
+if ( $RETURNCODE == 0 )
+  {
+    `maildirmake $MAILDIR`
+    # send mail to XXX@EXAMPLE.DE about maildir creation
+    # `echo "maildirmake $MAILDIR" | mail -s "maildirmake $MAILDIR" XXX@EXAMPLE.DE`
+  }
+to "$MAILDIR";

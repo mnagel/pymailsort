@@ -1,0 +1,4 @@
+regexes = [
+        ('To',          'ping@example.de'            , 'ping-mails'),
+        ('X-Cron-Env',  '.{10,1000}'                 , 'lists.cron')
+]

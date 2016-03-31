@@ -1,0 +1,5 @@
+*.pyc
+*.swp
+
+# config file is ignored, sample is included
+pymailsort_cfg.py
