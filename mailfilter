@@ -1,3 +1,4 @@
+MAILADDRESS = "example@example.com"
 MAILDIRBASE = "$HOME/Maildir"
 logfile "$HOME/mailfilter.log"
 
@@ -14,6 +15,6 @@ if ( $RETURNCODE == 0 )
   {
     `maildirmake $MAILDIR`
     # send mail to XXX@EXAMPLE.DE about maildir creation
-    # `echo "maildirmake $MAILDIR" | mail -s "maildirmake $MAILDIR" XXX@EXAMPLE.DE`
+    `echo "maildirmake $MAILDIR" | mail -s "maildirmake $MAILDIR" $MAILADDRESS`
   }
 to "$MAILDIR";
